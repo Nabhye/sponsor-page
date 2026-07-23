@@ -1113,4 +1113,30 @@ html, body {
     font-size: 0.6rem;
     letter-spacing: 0.18em;
   }
+
+  /* GPU Hardware Acceleration & GPU Offloading */
+  .main-sponsor-card,
+  .sinusoid-cta-card,
+  .entire-network-wrapper,
+  .past-sponsor-card {
+    will-change: transform, opacity;
+    transform: translateZ(0); /* Forces browser layer creation on GPU */
+  }
+
+  /* Reduce high backdrop-filter blur on mobile to prevent frame drops */
+  .main-sponsor-card {
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+
+  .sinusoid-cta-card {
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+  }
+
+  /* Reduce heavy ambient blur filters */
+  .ambient-glow,
+  .cta-gradient-glow {
+    filter: blur(30px) !important;
+  }
 }
